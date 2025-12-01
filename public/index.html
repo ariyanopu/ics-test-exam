@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Exam Form</title>
+  <style>
+    body{font-family:sans-serif;padding:20px;background:#eef1f6;}
+    .card{background:white;padding:20px;border-radius:10px;max-width:650px;margin:auto;box-shadow:0 4px 18px rgba(0,0,0,.06);}
+    label{display:block;margin-top:12px;font-weight:600;}
+    input,textarea{width:100%;padding:10px;margin-top:5px;border-radius:8px;border:1px solid #ddd;}
+    button{margin-top:15px;padding:12px;border:none;border-radius:8px;background:#2563eb;color:white;font-size:16px;cursor:pointer;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exam Submission</h2>
+
+    <form action="/api/submit" method="post" enctype="multipart/form-data">
+
+      <label>Student Label
+        <input type="text" name="studentLabel" placeholder="Student -1"/>
+      </label>
+
+      <label>Name
+        <input type="text" name="name" required/>
+      </label>
+
+      <label>Facebook Id Name
+        <input type="text" name="facebook"/>
+      </label>
+
+      <label>Email Name
+        <input type="email" name="email"/>
+      </label>
+
+      <label>Telegram Name
+        <input type="text" name="telegram"/>
+      </label>
+
+      <label>Qsn5
+        <textarea name="qsn5"></textarea>
+      </label>
+
+      <label>Qsn6
+        <textarea name="qsn6"></textarea>
+      </label>
+
+      <label>Image File (optional)
+        <input type="file" name="image" accept="image/*"/>
+      </label>
+
+      <button type="submit">Submit</button>
+
+    </form>
+  </div>
+</body>
+          </html>
