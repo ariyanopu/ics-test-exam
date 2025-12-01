@@ -1,0 +1,9 @@
+{
+  "name": "exam-to-telegram",
+  "version": "1.0.0",
+  "dependencies": {
+    "form-data": "^4.0.0",
+    "axios": "^1.4.0",
+    "busboy": "^1.6.0"
+  }
+}
