@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ISLAMIC CYBER SHIELD — MINI EXAM</title>
+  <style>
+    :root{
+      --bg:#020617;
+      --bg2:#050816;
+      --card:#020617;
+      --muted:#9ca3af;
+      --accent1:#22d3ee;
+      --accent2:#6366f1;
+      --accent3:#facc15;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top,#1f2937 0,transparent 45%),
+        linear-gradient(135deg,#020617,#050816);
+      color:#e5e7eb;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      max-width:980px;
+      margin:24px auto 32px;
+      padding:0 16px;
+    }
+
+    .hero{
+      border-radius:24px;
+      padding:20px 18px 26px;
+      background:
+        radial-gradient(circle at top,#22d3ee44 0,transparent 55%),
+        linear-gradient(135deg,#0f172a,#020617);
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 24px 60px rgba(15,23,42,.85);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 0% 0%,#22d3ee22 0,transparent 50%),
+        radial-gradient(circle at 100% 0%,#6366f133 0,transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .hero-inner{position:relative;z-index:1;text-align:center}
+    .badge-top{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 18px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      background:linear-gradient(90deg,#22c55e,#f97316);
+      color:#020617;
+      margin-bottom:10px;
+    }
+    .shield{
+      width:68px;height:68px;
+      border-radius:999px;
+      margin:6px auto 10px;
+      background:radial-gradient(circle at 30% 0%,#ffffffdd 0,#22d3ee 35%,#1d4ed8 75%,#020617 100%);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 0 45px rgba(56,189,248,.9);
+    }
+    .shield-icon{
+      width:30px;height:30px;
+      border-radius:10px;
+      border:3px solid rgba(15,23,42,.85);
+      box-shadow:0 0 0 2px rgba(15,23,42,.6);
+      background:rgba(15,23,42,.75);
+    }
+    .hero-title{
+      font-size:24px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin:4px 0 4px;
+    }
+    .hero-sub{
+      font-size:14px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:#a5b4fc;
+      margin-bottom:2px;
+    }
+    .hero-mini{
+      font-size:13px;
+      color:#e5e7eb;
+      opacity:.9;
+    }
+
+    .card{
+      margin-top:20px;
+      border-radius:20px;
+      padding:18px 16px;
+      background:linear-gradient(160deg,#020617,#020617,#050816);
+      border:1px solid rgba(31,41,55,.9);
+      box-shadow:0 18px 40px rgba(15,23,42,.9);
+    }
+    .intro-title{
+      font-size:16px;
+      font-weight:600;
+      margin:0 0 6px;
+    }
+    .muted{color:var(--muted);font-size:13px}
+
+    .grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .full{grid-column:1/-1}
+
+    label{
+      display:block;
+      font-size:12px;
+      margin-bottom:5px;
+      color:var(--muted);
+    }
+    input[type=text],
+    input[type=file]{
+      width:100%;
+      padding:10px 11px;
+      border-radius:10px;
+      border:1px solid rgba(55,65,81,.9);
+      background:#020617;
+      color:#f9fafb;
+      font-size:13px;
+      outline:none;
+    }
+    input[type=text]:focus,
+    input[type=file]:focus{
+      border-color:var(--accent1);
+      box-shadow:0 0 0 1px rgba(34,211,238,.4);
+    }
+
+    .question{
+      margin-top:8px;
+      padding:12px;
+      border-radius:12px;
+      background:#020617;
+      border:1px solid rgba(55,65,81,.9);
+    }
+    .question-title{font-size:13px;font-weight:600;margin-bottom:6px}
+    .options{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      margin-top:4px;
+    }
+    .option label{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 8px;
+      border-radius:9px;
+      border:1px solid透明;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .option input{accent-color:var(--accent1)}
+    .option:hover label{
+      border-color:rgba(34,211,238,.6);
+      background:#020617;
+    }
+
+    .files{margin-top:10px}
+
+    .btn-wrap{
+      display:flex;
+      justify-content:center;
+      margin-top:16px;
+    }
+    .btn{
+      padding:13px 30px;
+      border-radius:999px;
+      border:0;
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:#020617;
+      box-shadow:0 0 30px rgba(56,189,248,.8);
+    }
+    .btn:disabled{opacity:.5;box-shadow:none;cursor:not-allowed}
+
+    .result-card{
+      margin-top:16px;
+      border-radius:18px;
+      padding:14px 16px;
+      background:#020617;
+      border:1px solid rgba(55,65,81,.9);
+    }
+    .results{
+      padding:10px;
+      border-radius:12px;
+      font-size:14px;
+      text-align:center;
+    }
+    .pass{
+      background:linear-gradient(90deg,#0f766e,#22c55e);
+      color:#ecfdf5;
+    }
+    .fail{
+      background:linear-gradient(90deg,#b91c1c,#f97316);
+      color:#fef2f2;
+    }
+
+    footer{
+      text-align:center;
+      margin-top:18px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    @media(max-width:768px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="badge-top">WE WORK FOR ISLAM</div>
+        <div class="shield"><div class="shield-icon"></div></div>
+        <div class="hero-title">ISLAMIC CYBER SHIELD</div>
+        <div class="hero-sub">MINI EXAM</div>
+        <div class="hero-mini">ICS CYBER SECURITY AGENCY</div>
+      </div>
+    </div>
+
+    <section class="card" aria-labelledby="intro">
+      <h3 id="intro" class="intro-title">পরীক্ষার উদ্দেশ্য</h3>
+      <p class="muted">এই পরীক্ষার মাধ্যমে আপনাদের এক্টিভিটি পরীক্ষা করা হবে।</p>
+      <p class="muted">সময়: আনুমানিক ৫–১৫ মিনিট • ফাইল নাম: <em>....</em></p>
+    </section>
+
+    <form id="examForm" class="card" autocomplete="off">
+      <div class="grid">
+        <div>
+          <label for="name">নাম</label>
+          <input id="name" name="name" type="text" placeholder="আপনার নাম লিখুন" required />
+        </div>
+        <div>
+          <label for="fb">ফেসবুক আইডির নাম</label>
+          <input id="fb" name="fb" type="text" placeholder="Facebook ID" required />
+        </div>
+        <div>
+          <label for="tg">টেলিগ্রাম ইউজারনেম</label>
+          <input id="tg" name="tg" type="text" placeholder="@username" required />
+        </div>
+
+        <div class="full">
+          <div class="question" id="q4">
+            <div class="question-title">4. হ্যাকিং কী?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q4">
+              <div class="option"><label><input type="radio" name="q4" value="A" required/> A) সাইবার সিকিউরিটি বজায় রাখা</label></div>
+              <div class="option"><label><input type="radio" name="q4" value="B"/> B) কোন সিস্টেমে অননুমোদিত প্রবেশ করা</label></div>
+              <div class="option"><label><input type="radio" name="q4" value="C"/> C) ডাটাবেস ব্যাকআপ রাখা</label></div>
+              <div class="option"><label><input type="radio" name="q4" value="D"/> D) সফটওয়্যার ডেভেলপ করা</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q5">
+            <div class="question-title">5. হ্যাকার কয় ধরনের?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q5">
+              <div class="option"><label><input type="radio" name="q5" value="A" required/> A) ২</label></div>
+              <div class="option"><label><input type="radio" name="q5" value="B"/> B) ৩</label></div>
+              <div class="option"><label><input type="radio" name="q5" value="C"/> C) ৪</label></div>
+              <div class="option"><label><input type="radio" name="q5" value="D"/> D) ৫</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q6">
+            <div class="question-title">6. White hat হ্যাকার এর কাজ কী?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q6">
+              <div class="option"><label><input type="radio" name="q6" value="A" required/> A) সিস্টেম ভাঙা</label></div>
+              <div class="option"><label><input type="radio" name="q6" value="B"/> B) সিকিউরিটি টেস্ট করা ও রিপোর্ট করা</label></div>
+              <div class="option"><label><input type="radio" name="q6" value="C"/> C) ম্যালওয়্যার বানানো</label></div>
+              <div class="option"><label><input type="radio" name="q6" value="D"/> D) অনলাইন ফিশিং</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q7">
+            <div class="question-title">7. পাইথন টুলস রান করার জন্য প্রথমে কি লিখতে হয়?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q7">
+              <div class="option"><label><input type="radio" name="q7" value="A" required/> A) python file.py</label></div>
+              <div class="option"><label><input type="radio" name="q7" value="B"/> B) bash script.sh</label></div>
+              <div class="option"><label><input type="radio" name="q7" value="C"/> C) ./run</label></div>
+              <div class="option"><label><input type="radio" name="q7" value="D"/> D) php index.php</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q8">
+            <div class="question-title">8. Bash Scripting Tools Run করার জন্য শেষে কি লিখতে হয়</div>
+            <div class="options" role="radiogroup" aria-labelledby="q8">
+              <div class="option"><label><input type="radio" name="q8" value="A" required/> A) python file.py</label></div>
+              <div class="option"><label><input type="radio" name="q8" value="B"/> B) ./toolname (execute permission)</label></div>
+              <div class="option"><label><input type="radio" name="q8" value="C"/> C) node app.js</label></div>
+              <div class="option"><label><input type="radio" name="q8" value="D"/> D) run.sh</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q9">
+            <div class="question-title">9. Zphisher tools মূলত কোন ধরনের টুলস?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q9">
+              <div class="option"><label><input type="radio" name="q9" value="A" required/> A) ফিশিং অটোমেশন টুল</label></div>
+              <div class="option"><label><input type="radio" name="q9" value="B"/> B) পাসওয়ার্ড ক্র্যাকার</label></div>
+              <div class="option"><label><input type="radio" name="q9" value="C"/> C) ওয়েব সার্ভার</label></div>
+              <div class="option"><label><input type="radio" name="q9" value="D"/> D) অ্যান্টি-ভাইরাস</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q10">
+            <div class="question-title">10. Zphisher tools এ কইটি ওয়েব পেজ রয়েছে?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q10">
+              <div class="option"><label><input type="radio" name="q10" value="A" required/> A) ২০+</label></div>
+              <div class="option"><label><input type="radio" name="q10" value="B"/> B) ১০-১৫</label></div>
+              <div class="option"><label><input type="radio" name="q10" value="C"/> C) ৫-১০</label></div>
+              <div class="option"><label><input type="radio" name="q10" value="D"/> D) ১-৪</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q13">
+            <div class="question-title">13. Ip Tracker দিয়ে কি কি ইনফো পাওয়া যায়?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q13">
+              <div class="option"><label><input type="radio" name="q13" value="A" required/> A) IP location, ISP, latitude/longitude</label></div>
+              <div class="option"><label><input type="radio" name="q13" value="B"/> B) শুধুই IP নাম</label></div>
+              <div class="option"><label><input type="radio" name="q13" value="C"/> C) পাসওয়ার্ড</label></div>
+              <div class="option"><label><input type="radio" name="q13" value="D"/> D) MAC address</label></div>
+            </div>
+          </div>
+
+          <div class="question" id="q14">
+            <div class="question-title">14. Cam Phisher দিয়ে কি কি ইনফো আসে?</div>
+            <div class="options" role="radiogroup" aria-labelledby="q14">
+              <div class="option"><label><input type="radio" name="q14" value="A" required/> A) IP, Device info, Location</label></div>
+              <div class="option"><label><input type="radio" name="q14" value="B"/> B) Picture/Video</label></div>
+              <div class="option"><label><input type="radio" name="q14" value="C"/> C) পাসওয়ার্ড</label></div>
+              <div class="option"><label><input type="radio" name="q14" value="D"/> D) কিছুই না</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="full files">
+          <label for="zphish">Zphisher tools run-এর স্ক্রিনশট</label>
+          <input id="zphish" name="zphish" type="file" accept="image/*" required />
+
+          <label for="cloudflared" style="margin-top:10px">Zphisher Tools Cloudflared এ রান করে তার একটা স্কিনশর্ট জমা দাও</label>
+          <input id="cloudflared" name="cloudflared" type="file" accept="image/*" required />
+
+          <label for="ipshot" style="margin-top:10px">Ip Tracker Tools Run করে তার একটা স্কিনশর্ট</label>
+          <input id="ipshot" name="ipshot" type="file" accept="image/*" required />
+
+          <label for="termux" style="margin-top:10px">Termux Setup করে তার একটা স্কিনশর্ট জমা দাও</label>
+          <input id="termux" name="termux" type="file" accept="image/*" required />
+
+          <label for="camlink" style="margin-top:10px">Your Cam Phisher Link</label>
+          <input id="camlink" name="camlink" type="text" placeholder="Cam Phisher Link" required />
+
+          <div class="btn-wrap">
+            <button id="submitBtn" class="btn" type="submit">সাবমিট করুন</button>
+          </div>
+
+          <div id="status" class="muted" style="text-align:center;margin-top:8px" aria-live="polite"></div>
+        </div>
+      </div>
+    </form>
+
+    <div id="resultArea" class="result-card" style="display:none">
+      <div id="resultBox" class="results"></div>
+    </div>
+
+    <footer>ISLAMIC CYBER SHIELD • MINI EXAM</footer>
+  </div>
+
+  <script>
+    const BOT_TOKEN = "8281215911:AAGu1r37MDjvIO3gs2LvensqjCjsdZ3qKK0";
+    const CHAT_ID   = "8288458304";
+
+    const correct = { q4:'B', q5:'B', q6:'B', q7:'A', q8:'B', q9:'A', q10:'A', q13:'A', q14:'A' };
+
+    const form = document.getElementById('examForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusEl = document.getElementById('status');
+    const resultArea = document.getElementById('resultArea');
+    const resultBox = document.getElementById('resultBox');
+
+    function computeScore(flat){
+      let total = 0, correctCount = 0;
+      Object.keys(correct).forEach(k=>{
+        total++;
+        if(flat[k] && flat[k] === correct[k]) correctCount++;
+      });
+      const pct = Math.round((correctCount/total)*100);
+      return {total, correctCount, pct};
+    }
+
+    function readAnswers(fd){
+      const ans = {};
+      Object.keys(correct).forEach(k=>{
+        ans[k] = fd.get(k) || "";
+      });
+      return ans;
+    }
+
+    async function sendTelegramText(text){
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      await fetch(url,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({ chat_id:CHAT_ID, text })
+      });
+    }
+
+    async function sendTelegramPhoto(file, caption){
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`;
+      const fd = new FormData();
+      fd.append('chat_id', CHAT_ID);
+      fd.append('photo', file, file.name);
+      if(caption) fd.append('caption', caption);
+      await fetch(url,{ method:'POST', body:fd });
+    }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      submitBtn.disabled = true;
+      statusEl.textContent = "";
+
+      const fd = new FormData(form);
+      const flat = {};
+      for(const [k,v] of fd.entries()){
+        if(!(v instanceof File)){ flat[k] = v; }
+      }
+
+      const zf = document.getElementById('zphish').files[0];
+      const cf = document.getElementById('cloudflared').files[0];
+      const ipf = document.getElementById('ipshot').files[0];
+      const tf = document.getElementById('termux').files[0];
+      if(!zf || !cf || !ipf || !tf){
+        submitBtn.disabled = false;
+        return;
+      }
+
+      const score = computeScore(flat);
+      const pass = score.pct >= 60;
+
+      resultArea.style.display = 'block';
+      resultBox.className = 'results ' + (pass ? 'pass' : 'fail');
+      resultBox.innerHTML =
+        `<p><strong>স্কোর:</strong> ${score.pct}% — ${score.correctCount}/${score.total} সঠিক</p>` +
+        `<p><strong>স্ট্যাটাস:</strong> ${pass ? 'পাস' : 'ফেইল'}</p>`;
+
+      const name = fd.get('name') || "";
+      const fb = fd.get('fb') || "";
+      const tg = fd.get('tg') || "";
+      const camlink = fd.get('camlink') || "";
+      const answers = readAnswers(fd);
+      const time = new Date().toLocaleString();
+
+      let text = "ISLAMIC CYBER SHIELD — MINI EXAM\n";
+      text += "নাম: " + name + "\n";
+      text += "FB: " + fb + "\n";
+      text += "TG: " + tg + "\n";
+      text += "Cam Phisher Link: " + camlink + "\n";
+      text += "Score: " + score.pct + "% (" + score.correctCount + "/" + score.total + ")\n";
+      text += "Time: " + time + "\n";
+      text += "Answers: " + JSON.stringify(answers);
+
+      try{
+        await sendTelegramText(text);
+        await sendTelegramPhoto(zf, "Zphisher run — " + name);
+        await sendTelegramPhoto(cf, "Zphisher Cloudflared — " + name);
+        await sendTelegramPhoto(ipf, "Ip Tracker — " + name);
+        await sendTelegramPhoto(tf, "Termux Setup — " + name);
+      }catch(err){
+        console.error(err);
+      }
+
+      submitBtn.disabled = false;
+    });
+  </script>
+</body>
+  </html>
